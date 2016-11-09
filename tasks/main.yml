@@ -4,7 +4,7 @@
   yum:
     state=latest
     name={{ item }}
-  with_items={{ cassandra_java_packages }}
+  with_items: "{{ cassandra_java_packages }}"
 
 - name: Import DataStax GPG Key
   rpm_key:
