@@ -13,7 +13,7 @@
 
 - name: Install DataStax Repo
   template:
-    src=datastax.repo
+    src=datastax.repo.j2
     dest=/etc/yum.repos.d/datastax.repo
     mode=0644
 
@@ -21,3 +21,11 @@
   yum:
     state=latest
     name=datastax-ddc
+
+- name: Install Cassandra YAML Config
+  template:
+    src=cassandra.yaml.j2
+    dest=/etc/cassandra/conf/cassandra.yaml
+    mode=0640
+    owner={{ cassandra_user }}
+    group={{ cassandra_group }}
