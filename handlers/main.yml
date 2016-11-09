@@ -1,16 +1,16 @@
 ---
 
-- name: Start Cassandra
+- name: start cassandra
   service:
     name=cassandra
     state=started
 
-- name: Restart Cassandra
+- name: restart cassandra
   service:
     name=cassandra
     state=restarted
 
-- name: Stop Cassandra
+- name: stop cassandra
   service:
     name=cassandra
     state=stopped
