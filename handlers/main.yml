@@ -1,2 +1,17 @@
 ---
-# handlers file for ansible-role-cassandra
+
+- name: Start Cassandra
+  service:
+    name=cassandra
+    state=started
+
+- name: Restart Cassandra
+  service:
+    name=cassandra
+    state=restarted
+
+- name: Stop Cassandra
+  service:
+    name=cassandra
+    state=stopped
+
