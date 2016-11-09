@@ -1,0 +1,17 @@
+---
+
+- name: Install Java
+  yum:
+    state=latest
+    name={{ item }}
+    with={{ cassandra_java_packages }}
+
+- name: Import DataStax GPG Key
+  rpm_key:
+    state=present
+    key=http://rpm.datastax.com/rpm/repo_key
+
+- name: Install Cassandra
+  yum:
+    state=latest
+    name=datastax-ddc

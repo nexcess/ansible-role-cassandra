@@ -1,0 +1,6 @@
+---
+
+cassandra_version: 3.9
+cassandra_java_packages:
+  - java-1.8.0-openjdk-headless
+cassandra_cluster_name: Cluster
