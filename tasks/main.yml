@@ -1,0 +1,35 @@
+---
+
+- name: Install Java
+  package:
+    state=latest
+    name={{ item }}
+  with_items: "{{ cassandra_java_packages }}"
+
+- name: Import DataStax GPG Key
+  rpm_key:
+    state=present
+    key=http://rpm.datastax.com/rpm/repo_key
+
+- name: Install DataStax Repo
+  template:
+    src=datastax.repo.j2
+    dest=/etc/yum.repos.d/datastax.repo
+    mode=0644
+
+- name: Install Cassandra
+  package:
+    state=latest
+    name=datastax-ddc
+
+- name: Install Cassandra YAML Config
+  template:
+    src=cassandra.yaml.j2
+    dest=/etc/cassandra/conf/cassandra.yaml
+    mode=0640
+    owner={{ cassandra_user }}
+    group={{ cassandra_group }}
+
+- name: Start Cassandra
+  command: /bin/true
+  notify: start cassandra

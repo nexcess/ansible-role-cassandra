@@ -1,0 +1,9 @@
+---
+
+cassandra_cluster_name: "Default"
+cassandra_version: 3.9
+cassandra_java_packages:
+  - java-1.8.0-openjdk-headless
+cassandra_user: cassandra
+cassandra_group: cassandra
+cassandra_listen_address: 127.0.0.1
