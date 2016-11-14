@@ -1,7 +1,7 @@
 ---
 
 - name: Install Java
-  yum:
+  package:
     state=latest
     name={{ item }}
   with_items: "{{ cassandra_java_packages }}"
@@ -18,7 +18,7 @@
     mode=0644
 
 - name: Install Cassandra
-  yum:
+  package:
     state=latest
     name=datastax-ddc
 
