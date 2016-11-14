@@ -32,4 +32,4 @@
 
 - name: Start Cassandra
   command: /bin/true
-  notify: start cassandra
+  notify: restart cassandra
