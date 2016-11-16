@@ -30,10 +30,15 @@
     owner={{ cassandra_user }}
     group={{ cassandra_group }}
 
-- name: Make JMX *Not* Listen on 0.0.0.0
+- name: Make JMX *Not* Listen on 0.0.0.0 (Part 1)
   lineinfile:
     dest=/etc/default/cassandra
     line='JVM_OPTS="$JVM_OPTS -Djava.rmi.server.hostname={{ cassandra_listen_address }}"'
+
+- name: Make JMX *Not* Listen on 0.0.0.0 (Part 2)
+  lineinfile:
+    dest=/etc/default/cassandra
+    line='JVM_OPTS="$JVM_OPTS -Dcom.sun.management.jmxremote.host={{ cassandra_listen_address }}"'
 
 - name: Restart Cassandra
   command: /bin/true
