@@ -10,3 +10,7 @@ cassandra_listen_address: "{{ ansible_eth1.ipv4.address | default(127.0.0.1) }}"
 cassandra_seeds: "{{ ansible_eth1.ipv4.address | default(127.0.0.1) }}"
 cassandra_num_tokens: 256
 cassandra_interface: "{{ ansible_eth1.device | default(eth0) }}"
+cassandra_firewall_open_external_ports:
+  - 22
+cassandra_firewall_open_internal_ports:
+  - 9160
