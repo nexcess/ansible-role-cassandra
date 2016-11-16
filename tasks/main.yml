@@ -30,6 +30,6 @@
     owner={{ cassandra_user }}
     group={{ cassandra_group }}
 
-- name: Start Cassandra
+- name: Restart Cassandra
   command: /bin/true
   notify: restart cassandra
