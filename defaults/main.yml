@@ -6,6 +6,7 @@ cassandra_java_packages:
   - java-1.8.0-openjdk-headless
 cassandra_user: cassandra
 cassandra_group: cassandra
-cassandra_listen_address: 127.0.0.1
-cassandra_seeds: 127.0.0.1
+cassandra_listen_address: {{ ansible_eth1.ipv4.address | default(127.0.0.1) }}
+cassandra_seeds: {{ ansible_eth1.ipv4.address | default(127.0.0.1) }}
 cassandra_num_tokens: 256
+cassandra_interface: "{{ ansible_eth0.device }}"
