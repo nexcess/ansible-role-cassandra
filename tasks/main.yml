@@ -1,5 +1,7 @@
 ---
 
+- debug: var=cassandra_listen_address
+
 - name: Install Java
   package:
     state=latest
